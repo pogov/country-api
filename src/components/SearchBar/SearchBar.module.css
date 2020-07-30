@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  height: 30px;
+  width: 300px;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  padding: 17px 20px;
+  border-radius: 2px;
+  background-color: var(--cardBackground);
+}
+
+.searchInput {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--text);
+}
+
+input[type="text"] {
+  background-color: var(--cardBackground);
+  width: 100%;
+  color: var(--text);
+}
+
+.icon {
+  color: hsl(0, 0%, 52%);
+  /* color: hsl(200, 15%, 8%); */
+  margin-right: 20px;
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 40vw;
+  }
+}

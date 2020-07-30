@@ -1,26 +1,73 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import MainTemplate from "./templates/MainTemplate";
+import Main from "./components/Main/Main";
+import Details from "./components/Details/Details";
+import DetailsRedirect from "./DetailsRedirect";
+import MyContext from "./context/Context";
+import { Switch, BrowserRouter, Route } from "react-router-dom";
+import { setTheme } from "./theme/ThemeProvider";
+import "./styles.css";
 
-function App() {
+export default function App() {
+  const [context, setContext] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [theme, setThemeState] = useState("light");
+
+  const currentTheme = setTheme(theme);
+
+  document.documentElement.style.setProperty(
+    "--cardBackground",
+    `${currentTheme.cardBackgroundColor}`,
+  );
+  document.documentElement.style.setProperty(
+    "--background",
+    `${currentTheme.mainBackgroundColor}`,
+  );
+  document.documentElement.style.setProperty("--text", `${currentTheme.text}`);
+
+  document.documentElement.style.setProperty(
+    "--bar",
+    `${currentTheme.barColor}`,
+  );
+
+  const codes = context.map((item) => {
+    return { code: item.alpha3Code, name: item.name };
+  });
+
+  useEffect(() => {
+    fetch("https://restcountries.eu/rest/v2/all")
+      .then((res) => res.json())
+      .then((data) => {
+        setContext(data);
+      });
+  }, []);
+
+  const contextValue = {
+    context,
+    setContext,
+    filtered,
+    setFiltered,
+    codes,
+    theme,
+    setThemeState,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyContext.Provider value={contextValue}>
+        <BrowserRouter>
+          <MainTemplate>
+            <Switch>
+              <Route exact path="/" component={Main} />
+              <Route exact path="/countries/:name" component={Details} />
+              <Route
+                path="/countries/redirect/:name"
+                component={DetailsRedirect}
+              />
+            </Switch>
+          </MainTemplate>
+        </BrowserRouter>
+      </MyContext.Provider>
     </div>
   );
 }
-
-export default App;

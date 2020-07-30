@@ -1,0 +1,12 @@
+.main {
+  min-height: calc(100vh - 70px);
+  background-color: var(--background);
+  padding: 0 7vw 7vw 7vw;
+}
+.searchContainer {
+  margin: 10px 0;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

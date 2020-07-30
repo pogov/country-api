@@ -1,0 +1,150 @@
+.flag img {
+  width: 35vw;
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.2);
+}
+
+.outerContainer {
+  padding: 0 3vw;
+  height: calc(100vh - 70px);
+}
+
+.backlink {
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 10px;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--text);
+  padding: 2px 5px;
+  width: 80px;
+  height: 25px;
+  border-radius: 2px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: var(--cardBackground);
+}
+
+.container {
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.flag {
+  width: 50vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+
+.grid {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.left {
+  grid-column: 1 / 2;
+}
+.right {
+  grid-column: 2 / 3;
+}
+
+.info p span {
+  font-weight: bold;
+}
+
+.info h3 {
+  margin-left: 7px;
+}
+
+.btn {
+  padding: 2px 5px;
+  margin: 5px;
+  height: 25px;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: var(--cardBackground);
+  color: var(--text);
+}
+.info p {
+  margin: 7px;
+  color: var(--text);
+}
+
+.btns {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  color: var(--text);
+}
+
+.btns p {
+  margin: 10px;
+}
+
+.btns.left {
+  padding: 15px 5px;
+}
+
+.btns.right {
+  display: flex;
+  align-items: flex-start;
+  grid-column: 2 / 3;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  .backlink {
+    margin: 10px 0px;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .info h3 {
+    margin: 0;
+  }
+  .flag {
+    width: 100%;
+  }
+
+  .flag img {
+    width: 100%;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    margin-left: -7px;
+  }
+
+  .left {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .right {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .btns {
+    grid-template-columns: 1fr;
+    margin-left: -5px;
+  }
+  .btns p {
+    margin: 5px;
+  }
+}

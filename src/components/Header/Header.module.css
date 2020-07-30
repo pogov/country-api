@@ -1,0 +1,36 @@
+.header {
+  padding: 0 7vw;
+  margin: 0;
+  height: 50px;
+  background-color: var(--background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 2px var(--bar);
+}
+.h3 {
+  text-decoration: none;
+  color: black;
+}
+h3 {
+  color: var(--text);
+}
+
+.modeBtn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  outline: none;
+  margin: 10px 10px;
+  color: var(--text);
+  padding: 2px 5px;
+  /* width: 80px; */
+  height: 25px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: var(--background);
+}
+.modeBtn p {
+  margin-left: 3px;
+}

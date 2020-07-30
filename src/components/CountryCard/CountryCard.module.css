@@ -1,0 +1,27 @@
+.card {
+  background-color: var(--cardBackground);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  color: var(--text);
+}
+
+.flag img {
+  width: 100%;
+}
+
+.info {
+  padding: 1.2vw;
+}
+
+.info h3 {
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.info p {
+  line-height: 30px;
+}
+.info p span {
+  font-weight: bold;
+}
