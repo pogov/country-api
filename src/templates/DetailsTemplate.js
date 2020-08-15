@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../components/Details/Details.module.css";
+import PropTypes from "prop-types";
 
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -97,4 +98,11 @@ const DetailsTemplate = ({ state, handleClick, currentCodes }) => {
   );
 };
 
+DetailsTemplate.propTypes = {
+  state: PropTypes.arrayOf(PropTypes.string),
+  handleClick: PropTypes.func,
+  currentCodes: PropTypes.arrayOf(PropTypes.string),
+};
+
 export default DetailsTemplate;
+// state, handleClick, currentCodes

@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import styles from "./CountryCard.module.css";
+import PropTypes from "prop-types";
 
 const CountryCard = ({ country }) => {
   const [redirect, setRedirect] = React.useState(false);
@@ -31,6 +32,10 @@ const CountryCard = ({ country }) => {
       </div>
     </div>
   );
+};
+
+CountryCard.propTypes = {
+  country: PropTypes.string.isRequired,
 };
 
 export default CountryCard;
