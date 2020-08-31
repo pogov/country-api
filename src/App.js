@@ -55,21 +55,19 @@ export default function App() {
   };
 
   return (
-    <div>
-      <MyContext.Provider value={contextValue}>
-        <BrowserRouter>
-          <MainTemplate>
-            <Switch>
-              <Route exact path="/" component={Main} />
-              <Route exact path="/countries/:name" component={Details} />
-              <Route
-                path="/countries/redirect/:name"
-                component={DetailsRedirect}
-              />
-            </Switch>
-          </MainTemplate>
-        </BrowserRouter>
-      </MyContext.Provider>
-    </div>
+    <MyContext.Provider value={contextValue}>
+      <BrowserRouter>
+        <MainTemplate>
+          <Switch>
+            <Route exact path="/" component={Main} />
+            <Route exact path="/countries/:name" component={Details} />
+            <Route
+              path="/countries/redirect/:name"
+              component={DetailsRedirect}
+            />
+          </Switch>
+        </MainTemplate>
+      </BrowserRouter>
+    </MyContext.Provider>
   );
 }

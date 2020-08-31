@@ -38,7 +38,7 @@ const CountryCard = ({ country }) => {
 };
 
 CountryCard.propTypes = {
-  country: PropTypes.string.isRequired,
+  country: PropTypes.object.isRequired,
 };
 
 export default CountryCard;

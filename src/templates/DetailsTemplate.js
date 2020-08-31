@@ -99,9 +99,9 @@ const DetailsTemplate = ({ state, handleClick, currentCodes }) => {
 };
 
 DetailsTemplate.propTypes = {
-  state: PropTypes.arrayOf(PropTypes.string),
+  state: PropTypes.object,
   handleClick: PropTypes.func,
-  currentCodes: PropTypes.arrayOf(PropTypes.string),
+  currentCodes: PropTypes.func,
 };
 
 export default DetailsTemplate;
