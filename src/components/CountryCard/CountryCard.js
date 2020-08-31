@@ -13,7 +13,10 @@ const CountryCard = ({ country }) => {
   if (redirect) return <Redirect to={`/countries/${country.name}`} />;
 
   return (
-    <div className={styles.card} onClick={handleClick}>
+    <div
+      className={styles.card}
+      onClick={handleClick}
+      data-testid="country-card">
       <div className={styles.flag}>
         <img src={country.flag} alt={country.name} />
       </div>
