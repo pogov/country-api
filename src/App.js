@@ -40,7 +40,10 @@ export default function App() {
       .then((data) => {
         setContext(data);
       });
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)"))
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    )
       setThemeState("dark");
   }, []);
 
