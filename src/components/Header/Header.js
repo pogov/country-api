@@ -20,7 +20,7 @@ const Header = () => {
       </Link>
       <button className={styles.modeBtn} onClick={handleChangeTheme}>
         <FontAwesomeIcon icon={theme === "light" ? faMoonEmpty : faMoon} />
-        <p>Dark Mode</p>
+        Dark Mode
       </button>
     </div>
   );
