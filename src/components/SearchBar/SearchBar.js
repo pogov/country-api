@@ -23,7 +23,7 @@ const SearchBar = () => {
     <div className={styles.container}>
       <FontAwesomeIcon icon={faSearch} className={styles.icon} size="sm" />
       <input
-        name="country name"
+        aria-label="country name"
         className={styles.searchInput}
         type="text"
         placeholder="Search for a country..."
