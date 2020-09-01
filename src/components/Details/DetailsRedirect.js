@@ -1,6 +1,6 @@
 import React from "react";
-import MyContext from "./context/Context";
-import DetailsTemplate from "./templates/DetailsTemplate";
+import MyContext from "../../context/Context";
+import DetailsTemplate from "../../templates/DetailsTemplate";
 import { Redirect } from "react-router-dom";
 
 class DetailsRedirect extends React.Component {

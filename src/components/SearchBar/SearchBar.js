@@ -8,14 +8,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearch } from "../../hooks/useSearch";
 
 const SearchBar = () => {
-  const { context, setFiltered } = React.useContext(MyContext);
+  const { context, setFilteredCountries } = React.useContext(MyContext);
   const [search, setSearch] = React.useState("");
 
   const handleSearch = useSearch(
     search,
     setSearch,
     context,
-    setFiltered,
+    setFilteredCountries,
     "name",
   );
 

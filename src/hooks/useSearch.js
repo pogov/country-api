@@ -5,17 +5,17 @@ export const useSearch = (
   setSearchValue,
   context,
   setFiltered,
-  itemValue
+  itemValue,
 ) => {
   let regex = new RegExp(`${searchValue}`, "gi");
-  let filteredContext = context.filter(item => item[itemValue].match(regex));
+  let filteredContext = context.filter((item) => item[itemValue].match(regex));
 
   useEffect(() => {
     setFiltered(filteredContext);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
-  const handleSearch = e => {
+  const handleSearch = (e) => {
     setSearchValue(e.target.value || e.target.textContent);
   };
 

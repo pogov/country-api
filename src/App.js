@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MainTemplate from "./templates/MainTemplate";
 import Main from "./components/Main/Main";
 import Details from "./components/Details/Details";
-import DetailsRedirect from "./DetailsRedirect";
+import DetailsRedirect from "./components/Details/DetailsRedirect";
 import MyContext from "./context/Context";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import { setTheme } from "./theme/ThemeProvider";
@@ -10,7 +10,7 @@ import "./styles.css";
 
 export default function App() {
   const [context, setContext] = useState([]);
-  const [filtered, setFiltered] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [theme, setThemeState] = useState("light");
 
   const currentTheme = setTheme(theme);
@@ -35,20 +35,21 @@ export default function App() {
   });
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+      setThemeState("dark");
+
     fetch("https://restcountries.eu/rest/v2/all")
       .then((res) => res.json())
       .then((data) => {
         setContext(data);
       });
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)"))
-      setThemeState("dark");
   }, []);
 
   const contextValue = {
     context,
     setContext,
-    filtered,
-    setFiltered,
+    filteredCountries,
+    setFilteredCountries,
     codes,
     theme,
     setThemeState,

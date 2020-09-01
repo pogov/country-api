@@ -4,9 +4,9 @@ import CountryCard from "../CountryCard/CountryCard";
 import MyContext from "../../context/Context";
 
 const List = () => {
-  const { filtered, context } = React.useContext(MyContext);
+  const { filteredCountries, context } = React.useContext(MyContext);
 
-  const data = filtered.length > 0 ? filtered : context;
+  const data = filteredCountries.length > 0 ? filteredCountries : context;
 
   return (
     <div className={styles.list}>
