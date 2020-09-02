@@ -82,14 +82,17 @@ const DetailsTemplate = ({ state, handleClick, currentCodes }) => {
               <p>Border countries: </p>
             </div>
             <div className={styles.right}>
-              {state.borders.map((item, i) => (
-                <button
-                  onClick={() => handleClick(item)}
-                  className={styles.btn}
-                  key={i}>
-                  {currentCodes(item)}
-                </button>
-              ))}
+              {state.borders.map((item, i) => {
+                const borderCountryName = currentCodes(item);
+                return (
+                  <Link
+                    to={`/countries/${borderCountryName}`}
+                    className={styles.btn}
+                    key={i}>
+                    {borderCountryName}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>

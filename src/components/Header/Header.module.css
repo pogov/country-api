@@ -1,17 +1,19 @@
 .header {
   padding: 0 7vw;
   margin: 0;
-  height: 50px;
+  height: 70px;
   background-color: var(--background);
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 2px var(--bar);
 }
+
 .h3 {
   text-decoration: none;
   color: black;
 }
+
 h3 {
   color: var(--text);
 }
@@ -31,6 +33,7 @@ h3 {
   cursor: pointer;
   background-color: var(--background);
 }
+
 .modeBtn p {
   margin-left: 3px;
 }

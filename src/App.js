@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import MainTemplate from "./templates/MainTemplate";
 import Main from "./components/Main/Main";
 import Details from "./components/Details/Details";
-import DetailsRedirect from "./components/Details/DetailsRedirect";
 import MyContext from "./context/Context";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import { setTheme } from "./theme/ThemeProvider";
@@ -61,10 +60,12 @@ export default function App() {
         <MainTemplate>
           <Switch>
             <Route exact path="/" component={Main} />
-            <Route exact path="/countries/:name" component={Details} />
             <Route
-              path="/countries/redirect/:name"
-              component={DetailsRedirect}
+              exact
+              path="/countries/:name"
+              render={(props) => (
+                <Details key={props.match.params.name} {...props} />
+              )}
             />
           </Switch>
         </MainTemplate>
