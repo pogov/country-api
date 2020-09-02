@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import MainTemplate from "./templates/MainTemplate";
 import Main from "./components/Main/Main";
 import Details from "./components/Details/Details";
-import DetailsRedirect from "./DetailsRedirect";
 import MyContext from "./context/Context";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import { setTheme } from "./theme/ThemeProvider";
@@ -10,7 +9,7 @@ import "./styles.css";
 
 export default function App() {
   const [context, setContext] = useState([]);
-  const [filtered, setFiltered] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [theme, setThemeState] = useState("light");
 
   const currentTheme = setTheme(theme);
@@ -35,23 +34,29 @@ export default function App() {
   });
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+      setThemeState("dark");
+
     fetch("https://restcountries.eu/rest/v2/all")
       .then((res) => res.json())
       .then((data) => {
         setContext(data);
       });
+<<<<<<< HEAD
     if (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     )
       setThemeState("dark");
+=======
+>>>>>>> refactor
   }, []);
 
   const contextValue = {
     context,
     setContext,
-    filtered,
-    setFiltered,
+    filteredCountries,
+    setFilteredCountries,
     codes,
     theme,
     setThemeState,
@@ -63,10 +68,12 @@ export default function App() {
         <MainTemplate>
           <Switch>
             <Route exact path="/" component={Main} />
-            <Route exact path="/countries/:name" component={Details} />
             <Route
-              path="/countries/redirect/:name"
-              component={DetailsRedirect}
+              exact
+              path="/countries/:name"
+              render={(props) => (
+                <Details key={props.match.params.name} {...props} />
+              )}
             />
           </Switch>
         </MainTemplate>

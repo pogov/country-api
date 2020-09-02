@@ -5,14 +5,14 @@ import MyContext from "../../context/Context";
 import { useSearch } from "../../hooks/useSearch";
 
 const FilterBar = () => {
-  const { context, setFiltered } = React.useContext(MyContext);
+  const { context, setFilteredCountries } = React.useContext(MyContext);
   const [value, setValue] = React.useState();
 
   const handleSelect = useSearch(
     value,
     setValue,
     context,
-    setFiltered,
+    setFilteredCountries,
     "region",
   );
 

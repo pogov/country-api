@@ -1,7 +1,6 @@
 import React from "react";
 import MyContext from "../../context/Context";
 import DetailsTemplate from "../../templates/DetailsTemplate";
-import { Redirect } from "react-router-dom";
 
 class Details extends React.Component {
   static contextType = MyContext;
@@ -65,26 +64,9 @@ class Details extends React.Component {
       return names[0].name;
     };
 
-    const handleClick = (item) => {
-      const obj = codes.filter((code) => code.code === item);
-      const name = obj[0].name;
-      this.setState({
-        redirect: true,
-        redirectName: name,
-      });
-    };
-
-    if (this.state.redirect) {
-      return <Redirect to={`/countries/redirect/${this.state.redirectName}`} />;
-    }
-
     return (
       <div>
-        <DetailsTemplate
-          state={this.state}
-          handleClick={handleClick}
-          currentCodes={currentCodes}
-        />
+        <DetailsTemplate state={this.state} currentCodes={currentCodes} />
       </div>
     );
   }

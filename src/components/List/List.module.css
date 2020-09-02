@@ -1,5 +1,9 @@
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+<<<<<<< HEAD
   grid-gap: 2.5vw;
+=======
+  grid-gap: 2vw;
+>>>>>>> refactor
 }

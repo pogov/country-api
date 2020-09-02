@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import MyContext from "../../context/Context";
@@ -9,10 +9,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   const { theme, setThemeState } = useContext(MyContext);
-  const handleChangeTheme = () => {
+
+  const handleChangeTheme = useCallback(() => {
     if (theme === "light") setThemeState("dark");
     if (theme === "dark") setThemeState("light");
-  };
+  }, [setThemeState, theme]);
+
   return (
     <div className={styles.header}>
       <Link className={styles.h3} to="/">

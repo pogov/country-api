@@ -22,6 +22,11 @@
 .info p {
   line-height: 30px;
 }
+
 .info p span {
   font-weight: bold;
+}
+
+.link {
+  text-decoration: none;
 }

@@ -1,7 +1,7 @@
 .header {
   padding: 0 7vw;
   margin: 0;
-  height: 50px;
+  height: 70px;
   background-color: var(--background);
   display: flex;
   justify-content: space-between;
@@ -36,8 +36,11 @@ h3 {
 
 .modeBtn p {
   margin-left: 3px;
+<<<<<<< HEAD
 }
 
 .icon {
   margin-right: 6px;
+=======
+>>>>>>> refactor
 }

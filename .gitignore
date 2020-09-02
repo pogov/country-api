@@ -5,12 +5,14 @@
 /public/_redirects
 /.pnp
 .pnp.js
+.netlify/
 
 # testing
 /coverage
 
 # production
 /build
+public/_redirects
 
 # misc
 .DS_Store
