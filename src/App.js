@@ -42,14 +42,11 @@ export default function App() {
       .then((data) => {
         setContext(data);
       });
-<<<<<<< HEAD
     if (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     )
       setThemeState("dark");
-=======
->>>>>>> refactor
   }, []);
 
   const contextValue = {
