@@ -27,7 +27,7 @@ const DropdownMenu = ({ list, header, handler }) => {
         <FontAwesomeIcon icon={isVisible === false ? faAngleDown : faAngleUp} />
       </div>
       {isVisible && (
-        <div className={styles.list}>
+        <div data-testid="optionsList" className={styles.list}>
           {list.map((item) => {
             return (
               <div key={item} className={styles.listItem} onClick={handleClick}>
