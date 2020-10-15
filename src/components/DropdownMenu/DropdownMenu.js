@@ -22,7 +22,10 @@ const DropdownMenu = ({ list, header, handler }) => {
   });
   return (
     <div ref={dropdownRef} className={styles.menu}>
-      <div className={styles.header} onClick={() => setIsVisible(!isVisible)}>
+      <div
+        data-testid="header"
+        className={styles.header}
+        onClick={() => setIsVisible(!isVisible)}>
         <p>{header}</p>
         <FontAwesomeIcon icon={isVisible === false ? faAngleDown : faAngleUp} />
       </div>
@@ -30,7 +33,11 @@ const DropdownMenu = ({ list, header, handler }) => {
         <div data-testid="optionsList" className={styles.list}>
           {list.map((item) => {
             return (
-              <div key={item} className={styles.listItem} onClick={handleClick}>
+              <div
+                key={item}
+                className={styles.listItem}
+                onClick={handleClick}
+                data-testid="listItem">
                 <p>{item}</p>
               </div>
             );
