@@ -25,14 +25,13 @@ describe("DropdownMenu", () => {
   it("displays options", () => {
     const list = ["a", "b"];
     const clickHandler = jest.fn();
-    const { getByTestId } = render(
+    const { getByTestId, getByText } = render(
       <DropdownMenu list={list} header="HeaderTest" handler={clickHandler} />,
     );
     const container = getByTestId("header");
     fireEvent.click(container);
     const dropdownList = getByTestId("optionsList");
-    // screen.debug();
-    expect(dropdownList);
+    list.forEach((item) => expect(getByText(item)).not.toBeNull());
   });
 
   it("displays no dropdown when list in empty", () => {
