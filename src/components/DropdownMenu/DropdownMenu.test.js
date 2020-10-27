@@ -25,7 +25,7 @@ describe("DropdownMenu", () => {
   it("displays options", () => {
     const list = ["a", "b"];
     const clickHandler = jest.fn();
-    const { getByText } = render(
+    const { getByTestId, getByText } = render(
       <DropdownMenu list={list} header="HeaderTest" handler={clickHandler} />,
     );
     const container = getByTestId("header");
