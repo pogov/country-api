@@ -25,12 +25,11 @@ describe("DropdownMenu", () => {
   it("displays options", () => {
     const list = ["a", "b"];
     const clickHandler = jest.fn();
-    const { getByTestId, getByText } = render(
+    const { getByText } = render(
       <DropdownMenu list={list} header="HeaderTest" handler={clickHandler} />,
     );
     const container = getByTestId("header");
     fireEvent.click(container);
-    const dropdownList = getByTestId("optionsList");
     list.forEach((item) => expect(getByText(item)).not.toBeNull());
   });
 
