@@ -1,5 +1,6 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import DropdownMenu from "./DropdownMenu";
 
 describe("DropdownMenu", () => {
@@ -19,7 +20,8 @@ describe("DropdownMenu", () => {
     const container = render(
       <DropdownMenu list={list} header="HeaderTest" handler={clickHandler} />,
     );
-    expect(container.queryByText("HeaderTest")).not.toBeNull();
+    // expect(container.queryByText("HeaderTest")).not.toBeNull();
+    expect(container.queryByText("HeaderTest")).toBeInTheDocument();
   });
 
   it("displays options", () => {
@@ -30,7 +32,7 @@ describe("DropdownMenu", () => {
     );
     const container = getByTestId("header");
     fireEvent.click(container);
-    list.forEach((item) => expect(getByText(item)).not.toBeNull());
+    list.forEach((item) => expect(getByText(item)).toBeInTheDocument());
   });
 
   it("displays no dropdown when list in empty", () => {
